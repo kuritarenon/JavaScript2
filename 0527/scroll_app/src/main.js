@@ -34,6 +34,13 @@ scroll(
   },
 );
 
+// 追記：.parallax-section のスクロールに合わせて背景画像を上に動かす
+scroll(
+  animate(".parallax-bg", { y: [0, -200] }),
+  //taargetはスクロールする領域
+  { target: document.querySelector(".parallax-section") },
+);
+
 
 /* // 監視したい要素を取得（fade-target 内の h2 を監視する）
 const target = document.querySelector(".fade-target h2");
