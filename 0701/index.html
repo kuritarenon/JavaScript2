@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中間確認テスト</title>
+</head>
+
+<body>
+    <button id="btn1">りんご</button>
+    <button id="btn2">みかん</button>
+    <button id="btn3">バナナ</button>
+    <p id="message"></p>
+
+    <script>
+        // 1.  forEach　次の配列 numbers を使用し、50以上の数値だけをコンソールへ表示してください。forEach() と if を使用し、JavaScriptのコードのみを入力してください。
+        const numbers = [35, 80, 42, 67, 15, 90];
+        numbers.forEach((num) => {
+            if (num > 50) {
+                console.log(num);
+            }
+        })
+
+        // 次の配列 scores を使用し、map() を使って各要素に5点加算した新しい配列（配列名は任意）を作成し、console.log() で表示してください。JavaScriptのコードのみを入力してください。
+        const scores = [60, 75, 90];
+        console.log(scores);
+        const result = scores.map((num) => num + 5);
+        console.log(result);
+
+        // 次の配列membersを使用し、filter() を使って gradeが2以上のデータを取得し、さらに find() を使ってidが102のデータを取得してください。それぞれの結果を console.log() で表示してください。JavaScriptのコードのみを入力してください。
+        const members = [
+            { id: 101, name: '山田', grade: 1 },
+            { id: 102, name: '佐藤', grade: 2 },
+            { id: 103, name: '鈴木', grade: 3 }
+        ];
+
+        const ranku = members.filter((num) => num.grade >= 2);
+        console.log(ranku);
+
+        const bango = members.find((num) => num.id === 102);
+        console.log(bango);
+
+        // 次のHTMLがあります。3つのボタンのいずれかをクリックしたときに、#message に 「○○が選択されました。」 と表示するプログラムを作成してください。表示する文字列は showMessage() という名前のアロー関数へ引数として渡すようにしてください。また、各ボタンには addEventListener() を使用してください。JavaScriptのコードのみを入力してください。
+
+
+
+        // 次のURLからJSONデータを取得し、取得したデータを console.log() で表示するプログラムを作成してください。async / await、try...catch、res.ok を使用し、res.ok が false の場合は throw new Error() を使用してください。JavaScriptのコードのみを入力してください。
+
+        async function getUsers() {
+            const response = await fetch("https://jsonplaceholder.typicode.com/todos");
+            const data = await response.json();
+            console.log(data);
+        }
+        getUsers();
+
+        // 次のオブジェクトprofileを ocalStorage に保存し、その後取り出してnickname を console.log() で表示してください。JSON.stringify() と JSON.parse() を使用してください。JavaScriptのコードのみを入力してください。
+
+        const profile = {
+            nickname: 'Taro',
+            level: 5
+        };
+
+        localStorage.setItem('profile', JSON.stringify(profile));
+        const data = JSON.parse(localStorage.getItem('profile'));
+        console.log(profile.nickname);
+
+        // 次の配列booksを使用し、filter() を使って価格が2,000円未満の本を取得し、map() を使って本のタイトルだけの配列を作成し、さらに reduce() を使って本の価格の合計を求めてください。それぞれの結果をconsole.log()で表示してください。JavaScriptのコードのみを入力してください。
+
+        const books = [
+            { title: 'HTML入門', price: 1800 },
+            { title: 'CSS入門', price: 2200 },
+            { title: 'JavaScript入門', price: 2500 },
+            { title: 'PHP入門', price: 1900 }
+        ];
+        const adults = books.filter((value) => value.price < 2000);
+        console.log(adults);
+        const names = books.map((value) => value.title);
+        console.log(names);
+        const total = books.reduce((sum, num) => {
+            return sum + num;
+        }, 0);
+        console.log(total);
+    </script>
+</body>
+
+</html>
